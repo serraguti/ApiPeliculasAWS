@@ -23,6 +23,13 @@ namespace ApiPeliculasAWS.Controllers
             return await this.repo.GetPeliculasAsync();
         }
 
+        [HttpGet("{id}")]
+        public async Task<ActionResult<Pelicula>>
+            GetId(int id)
+        {
+            return await this.repo.FindPeliculaAsync(id);
+        }
+
         [HttpGet]
         [Route("[action]/{actor}")]
         public async Task<ActionResult<List<Pelicula>>>
